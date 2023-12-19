@@ -4,12 +4,12 @@
 \alias{generate_norm}
 \title{Generate truncated normal scores}
 \usage{
-generate_norm(n_candidates, n_voters, min = 0, max = 1, mean = 0.5, sd = 0.25)
+generate_norm(n_voters, n_candidates, min = 0, max = 1, mean = 0.5, sd = 0.25)
 }
 \arguments{
-\item{n_candidates}{The number of candidates to generate scores for.}
-
 \item{n_voters}{The number of voters to generate scores for.}
+
+\item{n_candidates}{The number of candidates to generate scores for.}
 
 \item{min}{The minimum value of the truncated normal distribution.}
 

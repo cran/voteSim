@@ -4,12 +4,12 @@
 \alias{generate_dirichlet}
 \title{Generate multinomial scores}
 \usage{
-generate_dirichlet(n_candidates, n_voters, probs = 0)
+generate_dirichlet(n_voters, n_candidates, probs = 0)
 }
 \arguments{
-\item{n_candidates}{integer,  The number of candidates to generate scores for.}
-
 \item{n_voters}{integer, the number of voters to generate scores for.}
+
+\item{n_candidates}{integer,  The number of candidates to generate scores for.}
 
 \item{probs}{A vector of size n_candidates corresponding to the parameters of the Dirichlet distribution. By default all values are equal to 1.}
 }

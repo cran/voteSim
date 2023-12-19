@@ -69,10 +69,10 @@ library(truncnorm)
 #' @export
 #' @examples
 #' voting_situation<- generate_norm(n_voters=10, n_candidates=3, min=0, max=10, mean=0.7)
-generate_norm<-function(n_candidates, n_voters, min=0, max=1, mean=0.5, sd=0.25){
+generate_norm<-function(n_voters, n_candidates, min=0, max=1, mean=0.5, sd=0.25){
   #set.seed(2023)
   scores<-matrix(truncnorm::rtruncnorm(n_candidates*n_voters, a=min, b=max, mean = mean, sd = sd),c(n_candidates,n_voters))
-  scores <- rename_rows(t(scores))
+  scores <- rename_rows(scores)
   return(scores)
 }
 
@@ -189,7 +189,7 @@ generate_multinom<-function(n_voters, n_candidates, max=10, probs=0)
 #' @export
 #' @examples
 #' voting_situation <- generate_dirichlet(n_voters=10, n_candidates=3,  probs=c(0.5, 0.3, 0.2))
-generate_dirichlet<-function(n_candidates, n_voters, probs=0)
+generate_dirichlet<-function( n_voters, n_candidates, probs=0)
 {
   if (length(probs)!=n_candidates){probs<-rep(1/n_candidates, n_candidates)}
   scores<-extraDistr::rdirichlet(n_voters, probs)
@@ -226,8 +226,8 @@ generate_dirichlet<-function(n_candidates, n_voters, probs=0)
 #' margins <- matrix(rep(distribution_cumul, n_candidates), ncol=n_candidates)
 #' margins <-as.list(as.data.frame(margins))
 #' cor_mat<-matrix(c(1,0.8,0,0.8,1,0, 0,0,1), ncol=n_candidates)
-#' voting_situation <- generate_discrete_copula_based(3, 10, max=max, margins=margins, cor_mat=cor_mat)
-generate_discrete_copula_based<-function(n_candidates, n_voters, min=0, max=10, margins=list("default"), cor_mat=0)
+#' voting_situation <- generate_discrete_copula_based(10, 3, max=max, margins=margins, cor_mat=cor_mat)
+generate_discrete_copula_based<-function(n_voters, n_candidates, min=0, max=10, margins=list("default"), cor_mat=0)
   {
   score_levels<-min:max
   n_levels<-length(score_levels)
@@ -284,7 +284,7 @@ generate_discrete_copula_based<-function(n_candidates, n_voters, min=0, max=10, 
 #' @importFrom stats runif
 #' @examples
 #' generate_spatial(n_candidates = 5,n_voters = 100,  placement = "uniform", score_method = "linear")
-generate_spatial <- function(n_candidates,n_voters,placement = "uniform",score_method = "linear", dim=2){
+generate_spatial <- function(n_voters,n_candidates,placement = "uniform",score_method = "linear", dim=2){
   #set.seed(2023)
   if (dim<1){
     warning("dim must be at least 1 - dim has been set up to 2")

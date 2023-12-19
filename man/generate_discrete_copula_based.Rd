@@ -5,8 +5,8 @@
 \title{Discrete Copula based scores}
 \usage{
 generate_discrete_copula_based(
-  n_candidates,
   n_voters,
+  n_candidates,
   min = 0,
   max = 10,
   margins = list("default"),
@@ -14,9 +14,9 @@ generate_discrete_copula_based(
 )
 }
 \arguments{
-\item{n_candidates}{integer,  The number of candidates to generate scores for.}
-
 \item{n_voters}{integer, the number of voters to generate scores for.}
+
+\item{n_candidates}{integer,  The number of candidates to generate scores for.}
 
 \item{min}{The minimum value of the  distribution, by default 0}
 
@@ -44,5 +44,5 @@ distribution_cumul<-distribution_cumul[-length(distribution_cumul)]
 margins <- matrix(rep(distribution_cumul, n_candidates), ncol=n_candidates)
 margins <-as.list(as.data.frame(margins))
 cor_mat<-matrix(c(1,0.8,0,0.8,1,0, 0,0,1), ncol=n_candidates)
-voting_situation <- generate_discrete_copula_based(3, 10, max=max, margins=margins, cor_mat=cor_mat)
+voting_situation <- generate_discrete_copula_based(10, 3, max=max, margins=margins, cor_mat=cor_mat)
 }

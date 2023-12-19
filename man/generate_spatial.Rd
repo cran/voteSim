@@ -5,17 +5,17 @@
 \title{Generate spatial simulation}
 \usage{
 generate_spatial(
-  n_candidates,
   n_voters,
+  n_candidates,
   placement = "uniform",
   score_method = "linear",
   dim = 2
 )
 }
 \arguments{
-\item{n_candidates}{The number of candidates.}
-
 \item{n_voters}{The number of voters.}
+
+\item{n_candidates}{The number of candidates.}
 
 \item{placement}{The method used to place the candidates on the 2-dimensional plane. Must be either "uniform" or "beta". Default is "uniform".}
 
